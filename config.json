@@ -1,0 +1,13 @@
+{
+    "INTER_TRIAL_INTERVAL": 0,
+    "MODE": "offline",
+    "NUM_TRIALS": 1,
+    "SAMPLING_FREQUENCY": 128,
+    "SESSION_NUMBER": 0,
+    "SUBJECT_NUMBER": 0,
+    "TARGETS": {
+        "1": "Focus",
+        "2": "NotFocus"
+    },
+    "TRIAL_DURATION": 10000
+}

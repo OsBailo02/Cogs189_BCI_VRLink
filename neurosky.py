@@ -15,7 +15,6 @@ Notes:
 import linear
 import mindwave
 from psychopy import visual
-from sklearn.linear_model import LinearRegression
 import numpy as np
 import json
 import time
@@ -31,6 +30,7 @@ from os.path import join as pjoin
 ##########################################################################
 
 ## SETTINGS
+
 
 def default_config():
     CONFIG = {
@@ -177,12 +177,20 @@ def dummy_train():
 
 def dummy_predict(data):
     # change this function to a real online prediction function (if you need one)
-    if data['attention'][-1] >55:
-        #pyautogui.write("hello world", interval = 0.25)
-        #pyautogui.press('e')
-        with pyautogui.hold('shift')
+    bci = linear.BCILinearRegressor("./focus_eeg.csv", "./not_focus_eeg.csv")
+    if bci.get_prediction(data['attention'][-1]) == -1:
+        if self.last_state != -1:
+            pyautogui.press('esc')
+            print("You're no longer focused-- pausing")
+        else:
+            self.last_state = -1
     else:
-        print('nonpause')
+        if self.last_state == 1:
+            print("Nothing is happening bc ur focused bro")
+        else:
+            self.last_state = 1
+
+        
 
 def update_offline_collection_gui(trial_permutation, trial_index, duration):
     '''
@@ -207,6 +215,7 @@ def update_offline_collection_gui(trial_permutation, trial_index, duration):
 
 # if this script is run as a script rather than imported
 if __name__ == "__main__": 
+    last_state = 1
 
     ###################### Headset Starting Sequence #####################
     currentTimestamp = None
