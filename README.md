@@ -1,5 +1,5 @@
 # Getting Started with Neurosky Mindwave Python EEG Recording
-
+## Slide presentation: https://docs.google.com/presentation/d/1Tqx7_BicjHbE5Cz-doXMNn2hOZCp-W9h5SoFOiATZWY/edit?usp=sharing
 ## Make sure you are in the neurosky-template directory:
 
 ### `python --version`
